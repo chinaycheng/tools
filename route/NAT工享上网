@@ -1,0 +1,31 @@
+#在服务器上执行下面几条命令： 
+#sudo echo "1" > /proc/sys/net/ipv4/ip_forward
+#打开IP转发，1表示转发；0表示不转发 
+#上面这个命令也可以通过修改/etc/sysctl.conf实现，在文件中加上下面一行： 
+#net.ipv4.ip_forward=1 
+#主机需要重启
+
+#其余命令是： 
+sudo iptables -F 
+sudo iptables -P INPUT ACCEPT 
+sudo iptables -P FORWARD ACCEPT 
+#usb0外网网卡
+sudo iptables -t nat -A POSTROUTING -o usb0 -j MASQUERADE
+上面这个命令在每次需要启动服务的时候运行。-o 后面接上网网卡的名字
+#客户端，添加路由：
+#sudo route add [<ip>|default] gw <server>
+sudo route add 91.189.92.156 gw 192.168.133.13
+
+
+#客户端需要修改DNS服务器地址。（如果本地链接无线网，DNS地址会自动生成并保存于/etc/resolv.conf文件中，如使用代理，需要手动添加）
+#查询DNS服务器地址
+cat /etc/resolv.conf
+#修改客户端DNS服务器相应文件
+
+
+查询当前路由分配
+$ route
+
+添加路由
+$ route add 192.168.133.6 gw 192.168.133.1 netmask 255.255.255.0 (不一定正确，需查证)
+
