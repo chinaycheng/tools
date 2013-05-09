@@ -1,0 +1,17 @@
+VIM命令行截屏：import -window root wwwllllove.jpg
+VIM命令行进阶：import -window root -crop 200x300+400+500 wwwllllove.jpg 
+全屏中， 从（200，300）位置开始， 截取(向右400，向下500) 的内容， 保存为 wwwllllove.jpg
+键盘快捷键：【Print Screen】是整个屏幕的截图；【Alt】 + 【Print Screen】组合键截屏，截获的是当前窗口截图，GNOME集成桌面环境下，使用功能键Print Screen或组合键Alt+Print Screen来抓取屏幕图像，在后台调用的正是gnome-screenshot程序
+命令行截屏scrot：抓取整个桌面、指定窗口、及选择矩形区域
+抓取桌面：
+命令：scrot desktop.png
+动作：该命令将当前的整个桌面抓取下来，并保存为 desktop.png 于当前目录中
+抓取窗口：
+命令：scrot -bs window.png
+动作：选项“ b” 包含外边框抓取；选项“s” 则让用户选择所要抓取的窗口
+抓取区域：
+命令：scrot -s rectangle.png
+动作：执行命令后，鼠标拖曳的矩形区域将被 scrot 抓取
+截屏抓图工具Shutter：即为图形界面的scrot，原名为GScrot，是一个特性丰富的一个屏幕截图软件。指定区域、窗口、全屏截屏，甚至某个网。
+截屏抓图工具gnome-screenshot：较之快捷键，多了更多特效及指针是否隐藏、边框选项等
+GIMP自带抓图：GIMP是Linux平台上可与Adobe Photoshop媲美的图像处理软件（作家俺曾用该软件做过电纸书的开机画面，O(∩_∩)O~）
