@@ -1,0 +1,116 @@
+Ubuntu 12.04 的用户可以轻松配置 苹果Mac 主题了，下面详细说说安装配置过程:
+
+1.安装 Gnome 经典桌面
+  sudo apt-get install gnome-session-fallback
+  没有安装桌面的可安装 Gnome 桌面：
+  sudo apt-get install gnome-core
+2.下载并安装主题
+  可以点击 这里 下载，也可以到 （http://www.linuxidc.com/Linux/2011-05/36331.htm） 下载 Macbuntu 主题，这款Macbuntu是高仿Mac主题，适用于Ubuntu 10.10 以后的版本，但要简单设置一下：将 install.sh 和 uninstall.sh 中的 UBUVER="10.10" ，改成自己对应的版本号就行了，比如 12.04（见图3），以普通用户运行脚本即可（根据提示进行具体配置）：
+
+./install.sh
+
+安装开始了，注意一些事项，第一个选择 3 ，其他选择是，就是 Y (见图4)
+
+附录：
+
+Macbuntu - Mac OS X Transformation Pack
+The Macbuntu installation script automatically installs and configures
+all necessary system components to mimic Mac OS X appearance on Ubuntu Linux
+
+Macbuntu-12.04 v2.3
+
+Include
+ * Paw-OSX and Paw-Ubuntu Plymouth themes
+ * Macbuntu sound theme
+ * Macbuntu GTK theme based on GTK Leopard
+ * Macbuntu-Icons based on Mac4Lin and Faenza Icons
+ * Macbuntu-Cursors based on Shere Khan X
+ * Mac OS X backgrounds
+ * Mac OS X fonts
+
+Installation
+ * Compiz Extras
+ * Application Menu
+ * Docky
+ * Ubuntu-Tweak
+ * Cheese
+
+Configuration
+ * Login screen
+ * Metacity
+ * Compiz effects
+ * Window theme
+ * Backgrounds
+ * Cursors
+ * Icons
+ * Top panel
+
+Attention!
+Script significantly changes the desktop.
+Not compatible with Ubuntu Netbook Edition.
+If a previous version of Macbuntu-12.04 is installed it will be overwritten.
+
+Checking Ubuntu version...
+Passed
+
+Checkin script user...
+Passed
+
+Checking currently installed version of Macbuntu-12.04...
+
+This script will install and enable Macbuntu-12.04 now
+You must have root privileges to be able to install listed components.
+
+Attention!
+Running scripts with root privileges is dangerous, if you do not trust the software
+or you are unsure about the origin of this software, please abort (Control+C).
+Macbuntu guarantee the safe code only if the application comes from this address
+https://sourceforge.net/projects/macbuntu/
+
+Do you want to continue [Y/n]?
+y
+
+Checkin for a root access...
+[sudo] password for www-linuxidc-com:
+
+Preparing backup...
+
+Please, take a breath and answer a few questions
+
+- Which font you want to install, otherwise a default (*) one will be selected?
+* 1. Do nothing, I want to do it myself
+  2. Latin
+  3. Chinese
+3
+- Which distributor logo you want to install, otherwise a default (*) one will be selected?
+  1. Mac - small
+* 2. Mac - middle
+  3. Mac - big
+  4. Ubuntu
+  5. Gnome
+
+- Do you want to enable wobbly windows [Y/n]?
+y
+- Enable left bottom corner to show desktop [Y/n]?
+y
+- Enable right bottom corner to show all windows [Y/n]?
+y
+
+3.设置主题
+
+重启，登录界面选择 Gnome Classic，就看到经典的 Ubuntu 界面了，但不是很漂亮。配置：打开 Ubuntu Tweak（见 http://www.linuxidc.com/Linux/2012-06/61946.htm ），把 icon，cursor，window 主题都设置为 Macbuntu 的，GTK 主题设置为 Radiance，这时应该有点效果了，但 panel 还不行。
+
+4.设置 panel
+
+首先把底部的 panel 给删除掉（因为已经有 docky 了），方法是 alt + win + 右键，这时会出现添加，属性，删除，新建等 panel 选项，同样可以设置顶部 panel，可以添加，删除，移动小部件。多摸索几次，就可以把 Activities，当前窗口菜单，通知，小工具等定制出来了！
+
+5.进一步
+
+把自己的用户设置为自动登录，docky 添加到启动选项里，基本就可以了。
+
+小结：
+
+有几个小问题，锁屏时主题没换过来，alt + tab 切换不了窗口，docky 有时会崩溃，flash 插件容易崩溃（特别是看电影的时候）。。。不过这些都显得微不足道了，少开一点桌面特效，尽量少用 docky 插件，崩溃了就重启一下浏览器，并没有影响到什么。
+
+换了几个主题，从图标到 GTK 等等，最终发现都没有 Mac 漂亮，优雅，精致。看着这优美的图标，就有一种赏心悦目的感觉……希望 Macbuntu 这个项目能发展的更好，这样Linux 用户就有福了！再上个图吧。 
+
