@@ -1,0 +1,62 @@
+usage: git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects]
+		   [--bare] [--git-dir=GIT_DIR] [--work-tree=GIT_WORK_TREE]
+		[--help] COMMAND [ARGS]
+
+The most commonly used git commands are:
+add        Add file contents to the index
+bisect     Find by binary search the change that introduced a bug
+branch     List, create, or delete branches
+checkout   Checkout a branch or paths to the working tree
+clone      Clone a repository into a new directory
+commit     Record changes to the repository
+diff       Show changes between commits, commit and working tree, etc
+fetch      Download objects and refs from another repository
+grep       Print lines matching a pattern
+init       Create an empty git repository or reinitialize an existing one
+log        Show commit logs
+merge      Join two or more development histories together
+mv         Move or rename a file, a directory, or a symlink
+pull       Fetch from and merge with another repository or a local branch
+push       Update remote refs along with associated objects
+rebase     Forward-port local commits to the updated upstream head
+reset      Reset current HEAD to the specified state
+rm         Remove files from the working tree and from the index
+show       Show various types of objects
+status     Show the working tree status
+tag        Create, list, delete or verify a tag object signed with GPG
+
+以上为git help 全部内容，也是认识GIT最有用的入口.下面分别对各个命令进行简单的讲解:
+
+git add :添加文件，顾名思义，添加一个新的文件到GIT库中,一般用于添加新文件、rebase和merger之后.
+git bisect :不详
+git branch :查看  git branch (-a) 查看本地分支（全部分支）
+            删除  git branch -d name 删除本地分支，如果该分支正是当前使用的分支，使用-D进行删除
+		    新建  git branch -b name 新建本地分支，如果以存在，将无法创建
+		    一般都不怎么使用，但是当在使用merge和rebase的时候，肯定要清楚分支名，所以一般使用 git branch -a
+git checkout :切换到一个已存在的分支
+git clone  :从remote clone一个GIT库到本地。在理解该功能的时候要结合fetch，效果更佳。
+git commit :提交修改。当对本地GIT库进行修改或merge之后，使用commit进行提交，也就是让GIT库记住本次修改。
+git diff  :查看当前GIT库的信息与上一次提交节点之间的差别，就是查看目前的修改信息。
+           git diff file :查看该文件的修改。
+		   git diff HEAD^ HEAD :查看头节点与次节点的区别。
+git fetch :与clone有异曲同工之妙，都是从远端拷贝信息到本地，但clone是拷贝整个GIT库，fetch一般只拷贝某一指定分支信息
+           据说可以fetch远端分支的某一节点提交信息，没成功过。
+git grep  :查询信息，一般没用，因为linux下面本来就有grep mgrep等。
+git init  :未知
+git log  :查看当前的Log信息。Log信息在每次commit的时候写入。
+git merge  :合并分支。将远端分支信息合并到本地分支。合并的结果跟rebase差不多，但它是融合，没有前后之分，只负责合并。
+            使用方法:先用branch查看信息  git branch -a
+			          再用merge进行合并   git merge remotes/***/***
+            注意：合并时候最容易出现的就是both modified。需要对conflict进行处理，然后add，commit
+git mv  :不详
+git pull :不详
+git push :上传修改到服务器。一般在commit之后使用
+git rebase :以指定的分支作为基础，将本分支额外的修改提交在该指定分支之上。
+git reset  :回退GIT信息，总共存在两种不同的回退方式：hard 和 soft.
+            使用方式:git reset --hard HEAD^ 代码和节点同时回退
+			         git reset --soft HEAD^ 节点回退，代码不回退.
+git rm : 与add相反，从GIT库中删除文件。
+git show :不详
+git status ：查看当前GIT分支上的修改状态。包括三种：Modify 、add、delete
+git tag  ：不详
