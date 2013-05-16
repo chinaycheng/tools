@@ -1,0 +1,43 @@
+LISP MIT IST
+
+Lisp语言中基本元素：原子(atom) 表(list)
+	atom : 是一个字幕序列，如abc
+	list : 是由零个或多个表达式组成的序列, 如(abc xyz)
+
+Lisp世界中的7个公里(基本操作符)
+	1 (quote x)返回x，一般简记为 'x
+	2 (atom x)当x是一个原子或则空表的时候返回原子t，否则返回空表()。
+	          Lisp中一般使用t表示真，空表()表示假
+	3 (eq x y)当x和y的值相同或则同为空表的时候返回t，否则返回空表()
+
+	4 (car x)首先要求x是一个表，返回x中的第一个元素
+	5 (cdr x)同样要求x是一个表，返回x中除第一个元素之外的所有元素组成的表
+	6 (cons x y)要求y是一个表，返回一个新表，该表的第一个元素是x，后面是y中的所有元素
+	7 (cond	(p1 e1)(p2 e2)...(pn en)) 这是一个判断表达的意思，其中p1到pn为条件，e1到en为结果。
+	  例如：(cond ((eq 'a 'b) 'first)((atom 'a) 'second))
+	        输出：second
+Lisp中函数的定义方式
+    Lisp中默认的函数定义：atom eq car cdr cons
+	Lisp中自定义函数方法：((lambda (p1,p2...pn)e)a1 a2 ... an)
+	                    其中lambda为函数名
+						p1 p2 pn 为形参
+						a1 a2 an 为实参
+						e        为表达式
+    Lisp函数自测式：((lambda (f) (f '(b c)))) '(lambda (x) (cons 'a x))  能否看出结果：abc
+
+	Lisp中使用表示符号来引用函数
+	(label f (lambda (p1 p2 ... pn) e))
+	(defun f(p1 p2 ... pn)e)
+
+Lisp中常用的函数
+(list e1 e2 e3 e4) = (cons e1 (cons e2 (cons e3 (cons en ()))))
+(null x) 判断x是否为空表
+(and x y) 逻辑与，当且仅当x和y都不是空表的时候返回't，否则返回空表
+(not x) 逻辑非，当x为空表的时候返回't，否则返回空表
+(append x y) 连接两个表x和y
+(pair x y) 首先要求x和y是两个长度相同的表，如 (pair '(a b c) '(x y z)) 
+                                              ((a x) (b y) (c z))
+(assoc x y) 其中x是原子，y是一个pair的表，如(assoc 'a '((a x) (b y)))
+                                             x
+											感脚就像ArrayList.get(a)一样
+(subst x y z) 在表z中将任意层次上出现的原子y都替换成为表达式x
